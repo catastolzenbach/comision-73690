@@ -57,6 +57,3 @@ Puedes desplegar la app en Vercel, Netlify o cualquier servicio de hosting para 
 ## Notas
 - Recuerda ocultar tus credenciales de Firebase usando variables de entorno si vas a publicar el código.
 - Las órdenes de compra se guardan en la colección `orders` de Firestore.
-
----
-¡Gracias por usar esta app! Si tienes dudas, contacta al desarrollador.
