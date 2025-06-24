@@ -13,8 +13,8 @@ const ItemListContainer = () => {
 
     getProducts().then((data) => {
       const productosFiltrados = categoryId
-        ? data.filter(prod => prod.categoria === categoryId)
-        : data;
+      ? data.filter(prod => prod.category === categoryId)
+      : data;
 
       setProductos(productosFiltrados);
       setLoading(false);

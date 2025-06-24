@@ -1,28 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 import ItemCount from './itemCount';
-import { useCart } from '../../context/CartContext';
+import './itemDetail.css';
 
 const ItemDetail = ({ producto }) => {
+  const { addToCart } = useContext(CartContext);
   const [agregado, setAgregado] = useState(false);
-  const { addToCart } = useCart();
 
-  const handleAgregar = (cantidad) => {
-    const itemConCantidad = { ...producto, quantity: cantidad };
-    addToCart(itemConCantidad);
+  const handleAdd = (cantidad) => {
+    addToCart(producto, cantidad);
     setAgregado(true);
   };
 
   return (
-    <div>
-      <h2>{producto.nombre}</h2>
-      <p>{producto.descripcion}</p>
-      <p>Precio: ${producto.precio}</p>
-      <p>Stock: {producto.stock}</p>
+    <div className="item-detail">
+      <h2>{producto.name}</h2>
+      <p>{producto.description}</p>
+      <p>Precio: ${producto.price}</p>
+      <p>Categoría: {producto.category}</p>
 
-      {agregado ? (
-        <p>Producto agregado al carrito ✅</p>
+      {!agregado ? (
+        <ItemCount stock={10} initial={1} onAdd={handleAdd} />
       ) : (
-        <ItemCount stock={producto.stock} onAdd={handleAgregar} />
+        <p>✅ Producto agregado al carrito</p>
       )}
     </div>
   );

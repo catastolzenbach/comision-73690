@@ -3,11 +3,11 @@ import React, { createContext, useState } from 'react';
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cartItems, setItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
-  // Agregar al carrito
+  // Funcion para agregar producto al carrito 
   const addToCart = (product) => {
-    setItems((prevItems) => {
+    setCartItems((prevItems) => {
       const itemExists = prevItems.find(item => item.id === product.id);
       if (itemExists) {
         return prevItems.map(item =>
@@ -21,33 +21,8 @@ export const CartProvider = ({ children }) => {
     });
   };
 
-  // Quitar un producto del carrito
-  const removeFromCart = (id) => {
-    setItems(prevItems => prevItems.filter(item => item.id !== id));
-  };
-
-  // Vaciar todo el carrito
-  const clearCart = () => {
-    setItems([]);
-  };
-
-  // Total de unidades en el carrito
-  const cartTotalQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0);
-
-  // Total en dinero
-  const cartTotalPrice = cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0);
-
   return (
-    <CartContext.Provider
-      value={{
-        cartItems,
-        addToCart,
-        removeFromCart,
-        clearCart,
-        cartTotalQuantity,
-        cartTotalPrice
-      }}
-    >
+    <CartContext.Provider value={{ cartItems, addToCart }}>
       {children}
     </CartContext.Provider>
   );

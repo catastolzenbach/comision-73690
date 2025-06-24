@@ -5,17 +5,27 @@ import ItemList from '../ItemList/ItemList';
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { categoryId } = useParams();
 
   useEffect(() => {
+    setLoading(true);
     const fetch = categoryId ? getProductsByCategory(categoryId) : getProducts();
-    fetch.then(setProducts);
+
+    fetch.then(data => {
+      setProducts(data);
+      setLoading(false);
+    });
   }, [categoryId]);
 
+  if (loading) return <p>Cargando productos...</p>;
+
+  if (products.length === 0) return <p>No hay productos para mostrar.</p>;
+
   return (
-    <div className="App-content">
-      <h2>{categoryId ? `Categoría: ${categoryId}` : "Bienvenido a nuestra tienda"}</h2>
-      <ItemList products={products} />
+    <div>
+      <h2>{categoryId ? `Categoría: ${categoryId}` : "Todos los productos"}</h2>
+      <ItemList products={products} />  {/* ← aquí está el cambio */}
     </div>
   );
 };
