@@ -8,7 +8,7 @@ const Cart = () => {
   const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   if (cartItems.length === 0) {
-    return <h2>El carrito está vacío</h2>;
+    return <div className="cart-container"><h2>El carrito está vacío</h2></div>;
   }
 
   return (

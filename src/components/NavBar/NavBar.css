@@ -1,5 +1,6 @@
 .navbar {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
@@ -8,16 +9,20 @@
 .logo {
     width: 100px;
     height: auto;
+    margin-bottom: 0;
 }
-
 
 .nav-links {
     list-style: none;
     display: flex;
+    justify-content: center;
+    flex: 1;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links li {
-    margin: 0 10px;
+    margin: 0 24px;
 }
 
 .nav-links button {
@@ -32,13 +37,23 @@
     text-decoration: underline;
 }
 
+.nav-links a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
 .cart-button {
-    position: relative; /* para que el badge se posicione relativo a este botón */
+    position: relative;
+    margin-top: 0;
+    font-size: 24px;
+    color: inherit;
     background: none;
     border: none;
-    font-size: 24px;
     cursor: pointer;
-    color: inherit;
     padding: 0;
 }
 

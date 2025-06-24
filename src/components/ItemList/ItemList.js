@@ -1,4 +1,5 @@
 import React from 'react';
+import './ItemList.css';
 
 function ItemList({ products }) {
   if (!products || products.length === 0) {
@@ -6,9 +7,9 @@ function ItemList({ products }) {
   }
 
   return (
-    <div>
+    <div className="item-list">
       {products.map(prod => (
-        <div key={prod.id}>
+        <div key={prod.id} className="item-card">
           <h3>{prod.name}</h3>
           <p>{prod.description}</p>
           <p>Precio: ${prod.price}</p>

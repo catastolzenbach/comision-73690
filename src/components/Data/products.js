@@ -1,8 +1,8 @@
 export const products = [
-  { id: "1", name: "Camiseta", category: "ropa", price: 10990, description: "Camiseta 100% algodón" },
+  { id: "1", name: "Camiseta", category: "ropa", price: 10990, description: "Camiseta algodón" },
   { id: "2", name: "Pantalón", category: "ropa", price: 20990, description: "Pantalón casual" },
   { id: "3", name: "Zapatos", category: "calzado", price: 30980, description: "Zapatos de cuero" },
-  { id: "4", name: "Polera", category: "ropa", price: 35990, description: "Polera de Algodon Basica y comoda" },
+  { id: "4", name: "Polera", category: "ropa", price: 35990, description: "Polera de algodón básica y cómoda" },
 ];
 
 export const getProducts = () =>
