@@ -37,11 +37,14 @@ export const CartProvider = ({ children }) => {
     });
   };
 
+  // Funcion para vaciar el carrito
+  const clearCart = () => setCartItems([]);
+
   // Cantidad total de productos en el carrito
   const cartTotalQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, decreaseQuantity, cartTotalQuantity }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, decreaseQuantity, cartTotalQuantity, clearCart }}>
       {children}
     </CartContext.Provider>
   );

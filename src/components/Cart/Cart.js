@@ -3,7 +3,7 @@ import { CartContext } from '../../context/CartContext';
 import './Cart.css';
 
 const Cart = () => {
-  const { cartItems, removeFromCart, decreaseQuantity } = useContext(CartContext);
+  const { cartItems, removeFromCart, decreaseQuantity, clearCart } = useContext(CartContext);
 
   const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
@@ -30,7 +30,7 @@ const Cart = () => {
 
       {/* Aquí van botones de acción */}
       <button>Finalizar compra</button>
-      <button>Vaciar carrito</button>
+      <button onClick={clearCart}>Vaciar carrito</button>
     </div>
   );
 };
