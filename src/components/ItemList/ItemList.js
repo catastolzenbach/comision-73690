@@ -1,5 +1,6 @@
 import React from 'react';
 import './ItemList.css';
+import Item from '../Item/Item';
 
 function ItemList({ products }) {
   if (!products || products.length === 0) {
@@ -10,9 +11,7 @@ function ItemList({ products }) {
     <div className="item-list">
       {products.map(prod => (
         <div key={prod.id} className="item-card">
-          <h3>{prod.name}</h3>
-          <p>{prod.description}</p>
-          <p>Precio: ${prod.price}</p>
+          <Item product={prod} />
         </div>
       ))}
     </div>

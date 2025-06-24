@@ -8,7 +8,7 @@ const Item = ({ product }) => {
     <div>
       <h3>{product.name}</h3>
       <p>${product.price}</p>
-      <Link to={`/item/${product.id}`}>Ver Detalle</Link>
+      <Link to={`/item/${product.id}`} style={{ color: 'black', textDecoration: 'none', display: 'block', marginBottom: '8px' }}>Ver Detalle</Link>
       <button onClick={() => addToCart(product)}>Agregar al carrito</button>
     </div>
   );
